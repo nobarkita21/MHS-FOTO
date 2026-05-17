@@ -1,0 +1,70 @@
+{
+  "entities": {
+    "Post": {
+      "title": "Post",
+      "description": "A wallpaper or video post",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "type": { "type": "string", "enum": ["image", "video", "album"] },
+        "mediaUrl": { "type": "string" },
+        "thumbnailUrl": { "type": "string" },
+        "fileSize": { "type": "string" },
+        "category": { "type": "string" },
+        "authorId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "authorPhoto": { "type": "string" },
+        "views": { "type": "number" },
+        "likes": { "type": "number" },
+        "shares": { "type": "number" },
+        "badge": { "type": "string", "enum": ["none", "new", "viral", "trending"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "albumItems": { "type": "array", "description": "Urls for album posts" }
+      },
+      "required": ["title", "type", "mediaUrl", "authorId", "category"]
+    },
+    "User": {
+      "title": "User",
+      "description": "App user document",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "badge": { "type": "string", "enum": ["User", "Verified", "Volunteer", "Admin", "Owner"] },
+        "isBanned": { "type": "boolean" },
+        "lastLogin": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Category": {
+      "title": "Category",
+      "description": "Post categories",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "count": { "type": "number" }
+      }
+    },
+    "SiteConfig": {
+      "title": "Site Configuration",
+      "description": "Global settings",
+      "type": "object",
+      "properties": {
+        "siteName": { "type": "string" },
+        "logoUrl": { "type": "string" },
+        "faviconUrl": { "type": "string" },
+        "maintenanceMode": { "type": "boolean" },
+        "maintenanceMessage": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/posts/{postId}": { "schema": "Post", "description": "Collection of posts" },
+    "/users/{userId}": { "schema": "User", "description": "User profiles" },
+    "/categories/{categoryId}": { "schema": "Category", "description": "Post categories" },
+    "/siteConfig/global": { "schema": "SiteConfig", "description": "Global settings" },
+    "/comments/{commentId}": { "schema": "object", "description": "Comments" }
+  }
+}

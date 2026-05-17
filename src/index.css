@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #06b6d4; /* cyab-500 */
+  --color-secondary: #0ea5e9;
+  --color-dark: #050505;
+}
+
+:root {
+  --background: #050505;
+  --foreground: #ffffff;
+}
+
+[data-theme='light'] {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  transition: background 0.5s ease, color 0.5s ease;
+  overflow-x: hidden;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glossy-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+}
+
+.rgb-border {
+  position: relative;
+  padding: 1px;
+  background: conic-gradient(from 0deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  border-radius: 12px;
+}
+
+.rgb-search-shadow {
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2), 0 0 30px rgba(255, 0, 255, 0.1);
+}
+
+.badge-pulse-viral {
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  box-shadow: 0 0 8px #ff416c;
+}
+
+.badge-pulse-trending {
+  background: linear-gradient(45deg, #f093fb, #f5576c);
+  box-shadow: 0 0 8px #f093fb;
+}
+
+.badge-pulse-new {
+  background: linear-gradient(45deg, #00f2fe, #4facfe);
+  box-shadow: 0 0 8px #00f2fe;
+}
+
+.wave-container {
+  overflow: hidden;
+  line-height: 0;
+}
+
+.category-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.video-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+}
+
+.rgb-shadow {
+  position: relative;
+}
+
+.rgb-shadow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: conic-gradient(from 0deg, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
+  border-radius: inherit;
+  z-index: -1;
+  animation: rotate 4s linear infinite;
+  filter: blur(10px);
+  opacity: 0.8;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.glossy-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.wave-bg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: url('https://raw.githubusercontent.com/abhisheknaiidu/awesome-github-profile-readme/master/wave.svg');
+  background-size: cover;
+  filter: hue-rotate(180deg) saturate(200%);
+}

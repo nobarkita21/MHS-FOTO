@@ -1,0 +1,6 @@
+{
+  "name": "VibeWall Premium",
+  "description": "Ultra-premium wallpaper and video gallery platform with real-time stats, dynamic themes, and extreme animations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
